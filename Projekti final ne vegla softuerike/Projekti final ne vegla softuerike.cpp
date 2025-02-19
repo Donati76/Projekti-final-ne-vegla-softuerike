@@ -6,6 +6,14 @@
 #include <iomanip>
 using namespace std;
 
+double convertCurrency(double amount, string from, string to, unordered_map<string, double>& rates) {
+    if (rates.find(from) == rates.end() || rates.find(to) == rates.end()) {
+        cout << "Invalid currency code!" << endl;
+        return -1;
+    }
+    double amountInUSD = amount / rates[from];
+    return amountInUSD * rates[to];
+
 
 int main()
 {
