@@ -15,9 +15,18 @@ double convertCurrency(double amount, string from, string to, unordered_map<stri
     return amountInUSD * rates[to];
 
 
-int main()
-{
-    
+    int main() {
+
+
+    unordered_map<string, double> exchangeRates = {
+        {"USD", 1.0},
+        {"EUR", 0.92},
+        {"GBP", 0.78},
+        {"INR", 83.0},
+        {"JPY", 148.5},
+        {"CAD", 1.35}
+    };
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
