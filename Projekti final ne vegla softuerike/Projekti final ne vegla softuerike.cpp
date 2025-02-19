@@ -13,7 +13,7 @@ double convertCurrency(double amount, string from, string to, unordered_map<stri
     }
     double amountInUSD = amount / rates[from];
     return amountInUSD * rates[to];
-
+}
 
     int main() {
         
@@ -35,6 +35,12 @@ double convertCurrency(double amount, string from, string to, unordered_map<stri
     cin >> fromCurrency;
     cout << "Enter to currency (USD, EUR, GBP, INR, JPY, CAD): ";
     cin >> toCurrency;
+
+    double convertedAmount = convertCurrency(amount, fromCurrency, toCurrency, exchangeRates);
+    if (convertedAmount != -1)
+        cout << fixed << setprecision(2) << amount << " " << fromCurrency << " = " << convertedAmount << " " << toCurrency << endl;
+
+    return 0;
 
 }
 
