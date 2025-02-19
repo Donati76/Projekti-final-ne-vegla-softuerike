@@ -6,17 +6,25 @@
 #include <iomanip>
 using namespace std;
 
+// Function to convert currency
+//Parametrat
+//- amount : Shuma e konvertimit
+//- from : Burimi i kodit (me saktesisht valuta nga e cila doni te bene konvertimin)
+//- to : Valuta ne te cilen doni te kryhet konvertimi
+//- rates : Nje harte e cila gjene vleren e kerkuar te valutes se caktuar per ta konvertuar
 double convertCurrency(double amount, string from, string to, unordered_map<string, double>& rates) {
     if (rates.find(from) == rates.end() || rates.find(to) == rates.end()) {
         cout << "Invalid currency code!" << endl;
         return -1;
     }
+    //Konvertimi se pari ne dollar me pas ne valuten qe deshironi
     double amountInUSD = amount / rates[from];
     return amountInUSD * rates[to];
 }
 
+
     int main() {
-        
+        //Vlerat e kembimit duke u krahasuar me 1 dollar
         unordered_map<string, double> exchangeRates = {
         {"USD", 1.0},
         {"EUR", 0.92},
@@ -29,6 +37,7 @@ double convertCurrency(double amount, string from, string to, unordered_map<stri
     string fromCurrency, toCurrency;
     double amount;
 
+    //Kerkesa qe perdoruesi te shenoj valtat dhe shumen qe i nevoitet te konvertoj
     cout << "Enter amount: ";
     cin >> amount;
     cout << "Enter from currency (USD, EUR, GBP, INR, JPY, CAD): ";
@@ -36,8 +45,10 @@ double convertCurrency(double amount, string from, string to, unordered_map<stri
     cout << "Enter to currency (USD, EUR, GBP, INR, JPY, CAD): ";
     cin >> toCurrency;
 
+    //Konvertimi
     double convertedAmount = convertCurrency(amount, fromCurrency, toCurrency, exchangeRates);
     if (convertedAmount != -1)
+        //Paraqitja e shumes se konvertuar me 2 numra decimal 
         cout << fixed << setprecision(2) << amount << " " << fromCurrency << " = " << convertedAmount << " " << toCurrency << endl;
 
     return 0;
