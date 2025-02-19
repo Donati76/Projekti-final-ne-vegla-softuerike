@@ -16,9 +16,8 @@ double convertCurrency(double amount, string from, string to, unordered_map<stri
 
 
     int main() {
-
-
-    unordered_map<string, double> exchangeRates = {
+        
+        unordered_map<string, double> exchangeRates = {
         {"USD", 1.0},
         {"EUR", 0.92},
         {"GBP", 0.78},
@@ -26,6 +25,16 @@ double convertCurrency(double amount, string from, string to, unordered_map<stri
         {"JPY", 148.5},
         {"CAD", 1.35}
     };
+
+    string fromCurrency, toCurrency;
+    double amount;
+
+    cout << "Enter amount: ";
+    cin >> amount;
+    cout << "Enter from currency (USD, EUR, GBP, INR, JPY, CAD): ";
+    cin >> fromCurrency;
+    cout << "Enter to currency (USD, EUR, GBP, INR, JPY, CAD): ";
+    cin >> toCurrency;
 
 }
 
